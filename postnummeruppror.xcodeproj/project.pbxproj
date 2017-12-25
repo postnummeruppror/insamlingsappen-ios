@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D73445D41FF028E400BFD25D /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73445D21FF028E400BFD25D /* ReportController.swift */; };
+		D73445D51FF028E400BFD25D /* ReportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73445D31FF028E400BFD25D /* ReportController.xib */; };
+		D73445D71FF0F23A00BFD25D /* PostnummerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73445D61FF0F23A00BFD25D /* PostnummerUtils.swift */; };
+		D759872B1FEFE3DA00A87012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759872A1FEFE3DA00A87012 /* AppDelegate.swift */; };
+		D759872D1FEFE3DA00A87012 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759872C1FEFE3DA00A87012 /* ViewController.swift */; };
+		D75987301FEFE3DA00A87012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D759872E1FEFE3DA00A87012 /* Main.storyboard */; };
+		D75987331FEFE3DA00A87012 /* postnummeruppror.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D75987311FEFE3DA00A87012 /* postnummeruppror.xcdatamodeld */; };
+		D75987351FEFE3DA00A87012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D75987341FEFE3DA00A87012 /* Assets.xcassets */; };
+		D75987381FEFE3DA00A87012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75987361FEFE3DA00A87012 /* LaunchScreen.storyboard */; };
+		D75987431FEFE3DB00A87012 /* postnummerupprorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75987421FEFE3DB00A87012 /* postnummerupprorTests.swift */; };
+		D759874E1FEFE3DB00A87012 /* postnummerupprorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759874D1FEFE3DB00A87012 /* postnummerupprorUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D759873F1FEFE3DB00A87012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D759871F1FEFE3DA00A87012 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75987261FEFE3DA00A87012;
+			remoteInfo = postnummeruppror;
+		};
+		D759874A1FEFE3DB00A87012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D759871F1FEFE3DA00A87012 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75987261FEFE3DA00A87012;
+			remoteInfo = postnummeruppror;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D73445D21FF028E400BFD25D /* ReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportController.swift; sourceTree = "<group>"; };
+		D73445D31FF028E400BFD25D /* ReportController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportController.xib; sourceTree = "<group>"; };
+		D73445D61FF0F23A00BFD25D /* PostnummerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostnummerUtils.swift; sourceTree = "<group>"; };
+		D75987271FEFE3DA00A87012 /* postnummeruppror.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = postnummeruppror.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D759872A1FEFE3DA00A87012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D759872C1FEFE3DA00A87012 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D759872F1FEFE3DA00A87012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D75987321FEFE3DA00A87012 /* postnummeruppror.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = postnummeruppror.xcdatamodel; sourceTree = "<group>"; };
+		D75987341FEFE3DA00A87012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D75987371FEFE3DA00A87012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D75987391FEFE3DA00A87012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D759873E1FEFE3DB00A87012 /* postnummerupprorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = postnummerupprorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75987421FEFE3DB00A87012 /* postnummerupprorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postnummerupprorTests.swift; sourceTree = "<group>"; };
+		D75987441FEFE3DB00A87012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D75987491FEFE3DB00A87012 /* postnummerupprorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = postnummerupprorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D759874D1FEFE3DB00A87012 /* postnummerupprorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postnummerupprorUITests.swift; sourceTree = "<group>"; };
+		D759874F1FEFE3DB00A87012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D75987241FEFE3DA00A87012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D759873B1FEFE3DB00A87012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75987461FEFE3DB00A87012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D759871E1FEFE3DA00A87012 = {
+			isa = PBXGroup;
+			children = (
+				D75987291FEFE3DA00A87012 /* postnummeruppror */,
+				D75987411FEFE3DB00A87012 /* postnummerupprorTests */,
+				D759874C1FEFE3DB00A87012 /* postnummerupprorUITests */,
+				D75987281FEFE3DA00A87012 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D75987281FEFE3DA00A87012 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D75987271FEFE3DA00A87012 /* postnummeruppror.app */,
+				D759873E1FEFE3DB00A87012 /* postnummerupprorTests.xctest */,
+				D75987491FEFE3DB00A87012 /* postnummerupprorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D75987291FEFE3DA00A87012 /* postnummeruppror */ = {
+			isa = PBXGroup;
+			children = (
+				D759872A1FEFE3DA00A87012 /* AppDelegate.swift */,
+				D759872C1FEFE3DA00A87012 /* ViewController.swift */,
+				D73445D61FF0F23A00BFD25D /* PostnummerUtils.swift */,
+				D759872E1FEFE3DA00A87012 /* Main.storyboard */,
+				D73445D21FF028E400BFD25D /* ReportController.swift */,
+				D73445D31FF028E400BFD25D /* ReportController.xib */,
+				D75987341FEFE3DA00A87012 /* Assets.xcassets */,
+				D75987361FEFE3DA00A87012 /* LaunchScreen.storyboard */,
+				D75987391FEFE3DA00A87012 /* Info.plist */,
+				D75987311FEFE3DA00A87012 /* postnummeruppror.xcdatamodeld */,
+			);
+			path = postnummeruppror;
+			sourceTree = "<group>";
+		};
+		D75987411FEFE3DB00A87012 /* postnummerupprorTests */ = {
+			isa = PBXGroup;
+			children = (
+				D75987421FEFE3DB00A87012 /* postnummerupprorTests.swift */,
+				D75987441FEFE3DB00A87012 /* Info.plist */,
+			);
+			path = postnummerupprorTests;
+			sourceTree = "<group>";
+		};
+		D759874C1FEFE3DB00A87012 /* postnummerupprorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D759874D1FEFE3DB00A87012 /* postnummerupprorUITests.swift */,
+				D759874F1FEFE3DB00A87012 /* Info.plist */,
+			);
+			path = postnummerupprorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D75987261FEFE3DA00A87012 /* postnummeruppror */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75987521FEFE3DB00A87012 /* Build configuration list for PBXNativeTarget "postnummeruppror" */;
+			buildPhases = (
+				D75987231FEFE3DA00A87012 /* Sources */,
+				D75987241FEFE3DA00A87012 /* Frameworks */,
+				D75987251FEFE3DA00A87012 /* Resources */,
+				D73445DA1FF115B800BFD25D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = postnummeruppror;
+			productName = postnummeruppror;
+			productReference = D75987271FEFE3DA00A87012 /* postnummeruppror.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D759873D1FEFE3DB00A87012 /* postnummerupprorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75987551FEFE3DB00A87012 /* Build configuration list for PBXNativeTarget "postnummerupprorTests" */;
+			buildPhases = (
+				D759873A1FEFE3DB00A87012 /* Sources */,
+				D759873B1FEFE3DB00A87012 /* Frameworks */,
+				D759873C1FEFE3DB00A87012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75987401FEFE3DB00A87012 /* PBXTargetDependency */,
+			);
+			name = postnummerupprorTests;
+			productName = postnummerupprorTests;
+			productReference = D759873E1FEFE3DB00A87012 /* postnummerupprorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D75987481FEFE3DB00A87012 /* postnummerupprorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75987581FEFE3DB00A87012 /* Build configuration list for PBXNativeTarget "postnummerupprorUITests" */;
+			buildPhases = (
+				D75987451FEFE3DB00A87012 /* Sources */,
+				D75987461FEFE3DB00A87012 /* Frameworks */,
+				D75987471FEFE3DB00A87012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D759874B1FEFE3DB00A87012 /* PBXTargetDependency */,
+			);
+			name = postnummerupprorUITests;
+			productName = postnummerupprorUITests;
+			productReference = D75987491FEFE3DB00A87012 /* postnummerupprorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D759871F1FEFE3DA00A87012 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = postnummeruppror;
+				TargetAttributes = {
+					D75987261FEFE3DA00A87012 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					D759873D1FEFE3DB00A87012 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D75987261FEFE3DA00A87012;
+					};
+					D75987481FEFE3DB00A87012 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D75987261FEFE3DA00A87012;
+					};
+				};
+			};
+			buildConfigurationList = D75987221FEFE3DA00A87012 /* Build configuration list for PBXProject "postnummeruppror" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D759871E1FEFE3DA00A87012;
+			productRefGroup = D75987281FEFE3DA00A87012 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D75987261FEFE3DA00A87012 /* postnummeruppror */,
+				D759873D1FEFE3DB00A87012 /* postnummerupprorTests */,
+				D75987481FEFE3DB00A87012 /* postnummerupprorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D75987251FEFE3DA00A87012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75987381FEFE3DA00A87012 /* LaunchScreen.storyboard in Resources */,
+				D73445D51FF028E400BFD25D /* ReportController.xib in Resources */,
+				D75987351FEFE3DA00A87012 /* Assets.xcassets in Resources */,
+				D75987301FEFE3DA00A87012 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D759873C1FEFE3DB00A87012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75987471FEFE3DB00A87012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D73445DA1FF115B800BFD25D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D75987231FEFE3DA00A87012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D73445D71FF0F23A00BFD25D /* PostnummerUtils.swift in Sources */,
+				D759872D1FEFE3DA00A87012 /* ViewController.swift in Sources */,
+				D73445D41FF028E400BFD25D /* ReportController.swift in Sources */,
+				D759872B1FEFE3DA00A87012 /* AppDelegate.swift in Sources */,
+				D75987331FEFE3DA00A87012 /* postnummeruppror.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D759873A1FEFE3DB00A87012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75987431FEFE3DB00A87012 /* postnummerupprorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75987451FEFE3DB00A87012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D759874E1FEFE3DB00A87012 /* postnummerupprorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D75987401FEFE3DB00A87012 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75987261FEFE3DA00A87012 /* postnummeruppror */;
+			targetProxy = D759873F1FEFE3DB00A87012 /* PBXContainerItemProxy */;
+		};
+		D759874B1FEFE3DB00A87012 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75987261FEFE3DA00A87012 /* postnummeruppror */;
+			targetProxy = D759874A1FEFE3DB00A87012 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D759872E1FEFE3DA00A87012 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D759872F1FEFE3DA00A87012 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D75987361FEFE3DA00A87012 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D75987371FEFE3DA00A87012 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D75987501FEFE3DB00A87012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D75987511FEFE3DB00A87012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D75987531FEFE3DB00A87012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UD63FEJJ8S;
+				INFOPLIST_FILE = postnummeruppror/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nu.postnummeruppror.postnummeruppror;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D75987541FEFE3DB00A87012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UD63FEJJ8S;
+				INFOPLIST_FILE = postnummeruppror/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nu.postnummeruppror.postnummeruppror;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D75987561FEFE3DB00A87012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = postnummerupprorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nu.postnummeruppror.postnummerupprorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/postnummeruppror.app/postnummeruppror";
+			};
+			name = Debug;
+		};
+		D75987571FEFE3DB00A87012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = postnummerupprorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nu.postnummeruppror.postnummerupprorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/postnummeruppror.app/postnummeruppror";
+			};
+			name = Release;
+		};
+		D75987591FEFE3DB00A87012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = postnummerupprorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nu.postnummeruppror.postnummerupprorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = postnummeruppror;
+			};
+			name = Debug;
+		};
+		D759875A1FEFE3DB00A87012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = postnummerupprorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nu.postnummeruppror.postnummerupprorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = postnummeruppror;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D75987221FEFE3DA00A87012 /* Build configuration list for PBXProject "postnummeruppror" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75987501FEFE3DB00A87012 /* Debug */,
+				D75987511FEFE3DB00A87012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75987521FEFE3DB00A87012 /* Build configuration list for PBXNativeTarget "postnummeruppror" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75987531FEFE3DB00A87012 /* Debug */,
+				D75987541FEFE3DB00A87012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75987551FEFE3DB00A87012 /* Build configuration list for PBXNativeTarget "postnummerupprorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75987561FEFE3DB00A87012 /* Debug */,
+				D75987571FEFE3DB00A87012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75987581FEFE3DB00A87012 /* Build configuration list for PBXNativeTarget "postnummerupprorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75987591FEFE3DB00A87012 /* Debug */,
+				D759875A1FEFE3DB00A87012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D75987311FEFE3DA00A87012 /* postnummeruppror.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D75987321FEFE3DA00A87012 /* postnummeruppror.xcdatamodel */,
+			);
+			currentVersion = D75987321FEFE3DA00A87012 /* postnummeruppror.xcdatamodel */;
+			path = postnummeruppror.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D759871F1FEFE3DA00A87012 /* Project object */;
+}
