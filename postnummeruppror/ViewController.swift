@@ -62,6 +62,11 @@ class ViewController: UIViewController {
         } catch {
             print("Failed getting stored user data")
         }
+                
+        // Enable tap outside to dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
 
     @IBAction func accept(_ sender: Any) {

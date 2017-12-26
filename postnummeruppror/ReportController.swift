@@ -32,6 +32,9 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 
+    @IBOutlet weak var accuracyLabel: UILabel!
+    
+
     @IBAction func showAboutDialog(_ sender: Any) {
         
         let alert = UIAlertController(title: "Om postnummeruppror", message: "Vi vill skapa en ny postnummerdatabas fri att använda för alla. Samtidigt vill vi visa för politiker att affärsmodellen för postnummer är förlegad. \nEftersom ursprungskällan till postnummer är skyddad måste vi bygga upp en ny databas från grunden. Vi vill göra det med din hjälp. Genom att rapportera in adressinformation med någon av våra appar kan du bidra till databasen.", preferredStyle: UIAlertControllerStyle.alert)
@@ -135,6 +138,15 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
             self.accuracy = location.horizontalAccuracy
             self.altitude = location.altitude
             
+            // Update accuracy label above map
+            self.accuracyLabel.text = String(self.accuracy)
+            
+            if self.accuracy > 50.0 {
+                self.accuracyLabel.textColor = UIColor.red
+            } else {
+                self.accuracyLabel.textColor = UIColor.black
+            }
+            
             centerMapOnLocation(location: location)
         }
     }
@@ -211,6 +223,11 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
         } catch {
             print("Failed to load user")
         }
+        
+        // Enable tap outside to dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
 
     }
 
