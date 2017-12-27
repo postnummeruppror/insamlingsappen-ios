@@ -170,8 +170,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="red-FL-zdg">
-                                <rect key="frame" x="16" y="235" width="343" height="58.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="red-FL-zdg">
+                                <rect key="frame" x="16" y="234" width="343" height="58.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i1a-V0-SHS">
                                         <rect key="frame" x="0.0" y="0.0" width="227" height="58.5"/>
@@ -195,7 +195,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -220,7 +220,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -242,7 +242,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -254,13 +254,13 @@
                                 </constraints>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QE-7O-vQZ">
-                                <rect key="frame" x="16" y="371.5" width="343" height="279.5"/>
+                                <rect key="frame" x="16" y="380" width="343" height="271"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="zPK-0e-kwF"/>
                                 </constraints>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fyll i informationen nedan. Stå gärna still vid adresspunkten tills du ser att noggrannheten är mindre än 50 m." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgY-2q-alR">
-                                <rect key="frame" x="16" y="78" width="343" height="62"/>
+                                <rect key="frame" x="16" y="69" width="343" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="RCe-oB-4pf"/>
                                 </constraints>
@@ -268,8 +268,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4yU-Cs-JY0">
-                                <rect key="frame" x="16" y="355.5" width="176" height="20.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4yU-Cs-JY0">
+                                <rect key="frame" x="16" y="354.5" width="176" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noggrannhet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="all-dI-Ltb">
                                         <rect key="frame" x="0.0" y="0.0" width="105.5" height="20.5"/>
@@ -294,8 +294,27 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9k-FO-Zyc">
+                                <rect key="frame" x="16" y="300" width="100" height="30"/>
+                                <state key="normal" title="Skicka rapport"/>
+                                <connections>
+                                    <action selector="sendReport:" destination="GFQ-t4-jg0" eventType="touchUpInside" id="mnn-z0-AM9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© OpenStreetMap" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-mI-7J7">
+                                <rect key="frame" x="251" y="632" width="103" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQI-2q-3FW">
+                                <rect key="frame" x="16" y="139" width="338" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.84152096509933472" green="0.29095873236656189" blue="0.30248546600341797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zoY-pR-YUd">
-                                <rect key="frame" x="16" y="159" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="167" width="343" height="58.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lC-mh-Rpt">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="58.5"/>
@@ -315,7 +334,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -336,7 +355,7 @@
                                                 <accessibility key="accessibilityConfiguration" label="Postort"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -346,28 +365,17 @@
                                     <constraint firstItem="Ct9-pK-ub2" firstAttribute="leading" secondItem="4lC-mh-Rpt" secondAttribute="trailing" constant="8" symbolic="YES" id="ngv-wX-6sr"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9k-FO-Zyc">
-                                <rect key="frame" x="16" y="301" width="100" height="30"/>
-                                <state key="normal" title="Skicka rapport"/>
-                                <connections>
-                                    <action selector="sendReport:" destination="GFQ-t4-jg0" eventType="touchUpInside" id="mnn-z0-AM9"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© OpenStreetMap" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-mI-7J7">
-                                <rect key="frame" x="251" y="632" width="103" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="4yU-Cs-JY0" firstAttribute="top" secondItem="q9k-FO-Zyc" secondAttribute="bottom" constant="24.5" id="1hf-GG-aAN"/>
                             <constraint firstItem="0lQ-jt-OeK" firstAttribute="trailing" secondItem="3QE-7O-vQZ" secondAttribute="trailing" constant="16" id="2Ua-K5-eh2"/>
-                            <constraint firstItem="dgY-2q-alR" firstAttribute="top" secondItem="0lQ-jt-OeK" secondAttribute="top" constant="14" id="4JX-bk-j9o"/>
+                            <constraint firstItem="dgY-2q-alR" firstAttribute="top" secondItem="0lQ-jt-OeK" secondAttribute="top" constant="5" id="4JX-bk-j9o"/>
+                            <constraint firstItem="eQI-2q-3FW" firstAttribute="top" secondItem="dgY-2q-alR" secondAttribute="bottom" constant="8" id="4Pk-ru-S7Y"/>
                             <constraint firstItem="0lQ-jt-OeK" firstAttribute="trailing" secondItem="red-FL-zdg" secondAttribute="trailing" constant="16" id="4RR-sc-Hm2"/>
                             <constraint firstItem="red-FL-zdg" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="6CS-3S-TIa"/>
+                            <constraint firstItem="eQI-2q-3FW" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="A5v-4t-yP3"/>
                             <constraint firstItem="0lQ-jt-OeK" firstAttribute="trailing" secondItem="UhV-mI-7J7" secondAttribute="trailing" constant="21" id="ITf-R2-K9k"/>
                             <constraint firstItem="UhV-mI-7J7" firstAttribute="top" secondItem="3QE-7O-vQZ" secondAttribute="bottom" constant="-19" id="Ibh-Sf-xJx"/>
                             <constraint firstItem="q9k-FO-Zyc" firstAttribute="top" secondItem="red-FL-zdg" secondAttribute="bottom" constant="8" id="Iyf-nQ-KF3"/>
@@ -378,9 +386,9 @@
                             <constraint firstItem="red-FL-zdg" firstAttribute="top" secondItem="zoY-pR-YUd" secondAttribute="bottom" constant="8" id="XFG-4F-Ue6"/>
                             <constraint firstItem="dgY-2q-alR" firstAttribute="trailing" secondItem="zoY-pR-YUd" secondAttribute="trailing" id="eRi-Iu-u30"/>
                             <constraint firstItem="all-dI-Ltb" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="gA0-f3-fDl"/>
-                            <constraint firstItem="zoY-pR-YUd" firstAttribute="top" secondItem="dgY-2q-alR" secondAttribute="bottom" constant="19" id="jjh-DQ-j0U"/>
                             <constraint firstItem="3QE-7O-vQZ" firstAttribute="top" secondItem="all-dI-Ltb" secondAttribute="bottom" constant="5" id="meR-xf-qul"/>
                             <constraint firstItem="dgY-2q-alR" firstAttribute="trailing" secondItem="y3T-kY-A7W" secondAttribute="trailingMargin" id="qI8-ZU-BM9"/>
+                            <constraint firstItem="zoY-pR-YUd" firstAttribute="top" secondItem="eQI-2q-3FW" secondAttribute="bottom" constant="8" id="zea-2G-Iqv"/>
                             <constraint firstItem="3QE-7O-vQZ" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="zfW-dt-61k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0lQ-jt-OeK"/>
@@ -405,9 +413,11 @@
                         <outlet property="houseName" destination="z1R-tN-STD" id="cPv-nn-5Qe"/>
                         <outlet property="houseNumber" destination="Qio-tv-6eg" id="ojl-gK-l6R"/>
                         <outlet property="labelIntro" destination="dgY-2q-alR" id="UyN-wn-ckS"/>
+                        <outlet property="labelValidationResult" destination="eQI-2q-3FW" id="eBu-mT-TKO"/>
                         <outlet property="mapView" destination="3QE-7O-vQZ" id="vhc-o3-Zmd"/>
                         <outlet property="postalCode" destination="19U-Hb-fSY" id="5Ii-u9-wRv"/>
                         <outlet property="postalTown" destination="ZHO-kf-5Su" id="9LV-r3-IPb"/>
+                        <outlet property="sendButton" destination="q9k-FO-Zyc" id="eyi-LY-A5h"/>
                         <outlet property="streetName" destination="jqF-2o-5Wa" id="e6f-Aq-Cak"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="createUserTransition" id="brw-b5-cUF"/>
                     </connections>

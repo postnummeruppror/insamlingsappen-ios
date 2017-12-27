@@ -51,12 +51,37 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     @IBOutlet weak var streetName: UITextField!
     @IBOutlet weak var houseNumber: UITextField!
     @IBOutlet weak var houseName: UITextField!
-    
+    @IBOutlet weak var labelValidationResult: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     var latitude = 0.0
     var longitude = 0.0
     var accuracy = 0.0
     var altitude = 0.0
+    
+    
+    fileprivate func validate(_ textField: UITextField) -> (Bool, String?) {
+        guard let text = textField.text else {
+            return (false, nil)
+        }
+        
+        if textField == postalCode {
+            return (text.count == 5, "Fel antal siffror i postnummer.")
+        }
+        
+        if textField == postalTown {
+            return (text.count > 1, "Ange en korrekt postort.")
+        }
+        
+        if textField == streetName {
+            return (text.count > 3, "Ange en gatuadress.")
+        }
+        
+        return (true, "")
+    }
+    
+    
+    
     
     @IBAction func sendReport(_ sender: Any) {
         
@@ -139,7 +164,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             self.altitude = location.altitude
             
             // Update accuracy label above map
-            self.accuracyLabel.text = String(self.accuracy)
+            self.accuracyLabel.text = String(Int(self.accuracy))
             
             if self.accuracy > 50.0 {
                 self.accuracyLabel.textColor = UIColor.red
@@ -193,6 +218,8 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     // Zoom to 250 m radius
     let regionRadius: CLLocationDistance = 250
     
+    
+    //Center map
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
@@ -200,6 +227,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     }
     
 
+    // Set upp OSM tile renderer
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return tileRenderer
     }
@@ -210,7 +238,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         
         setupTileRenderer()
         
-        // For use when the app is open
+        // Ask for location when app is in use
         locationManager.requestWhenInUseAuthorization()
         
         // If location services is enabled get the user's location
@@ -220,8 +248,8 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             locationManager.startUpdatingLocation()
         }
         
-        // Default location in central Sweden somewhere
-        let initialLocation = CLLocation(latitude: 59.635039, longitude: 14.841073)
+        // Start with default location in central Stockholm somewhere
+        let initialLocation = CLLocation(latitude: 59.342944, longitude: 18.083945)
         centerMapOnLocation(location: initialLocation)
         mapView.delegate = self
         
@@ -233,7 +261,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             let result = try context.fetch(request)
             
             if result.count == 0 {
-                // showSettings
+                // showSettings view
                 performSegue(withIdentifier: "showSettings", sender: self)
             }
         } catch {
@@ -244,15 +272,72 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-
+        
+        // Set text field delegate
+        postalCode.delegate = self
+        postalTown.delegate = self
+        streetName.delegate = self
+        houseNumber.delegate = self
+        
+        // Hide validation message container
+        labelValidationResult.isHidden = true
+        
+        // Start with send button disabled
+        sendButton.isEnabled = false
     }
 
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
+
+
+
+
+extension ReportController: UITextFieldDelegate {
+    
+    func checkValid(_ textField: UITextField, nextField: UITextField) {
+        let (valid, message) = validate(textField)
+        if valid {
+            nextField.becomeFirstResponder()
+        } else {
+            self.labelValidationResult.text = message
+        }
+        
+        // Toggle validation message
+        UIView.animate(withDuration: 0.25, animations: {
+            self.labelValidationResult.isHidden = valid
+        })
+        
+        // Show send button if no validation message
+        self.sendButton.isEnabled = self.labelValidationResult.isHidden
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case postalCode:
+            checkValid(postalCode, nextField: postalTown)
+        case postalTown:
+            checkValid(postalTown, nextField: streetName)
+        case streetName:
+            checkValid(streetName, nextField: houseNumber)
+        case houseNumber:
+            houseName.becomeFirstResponder()
+        default:
+            postalCode.resignFirstResponder()
+        }
+        
+        return true
+    }
+}
+
 
 
 
