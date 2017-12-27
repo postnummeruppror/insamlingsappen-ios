@@ -160,9 +160,9 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     }
     
     
-    // Switch to OSM
+    // Switch to OSM tile layer
     func setupTileRenderer() {
-        let template = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        let template = "https://a.tile.openstreetmap.se/osm/{z}/{x}/{y}.png"
         let overlay = MKTileOverlay(urlTemplate: template)
         overlay.canReplaceMapContent = true
         self.mapView.add(overlay, level: .aboveLabels)
