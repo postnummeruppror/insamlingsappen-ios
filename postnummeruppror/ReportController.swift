@@ -161,10 +161,10 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
     
     
     
-    // Show the popup to the user if we have been deined access
+    // Show the popup to the user if we have been denied location
     func showLocationDisabledPopUp() {
         let alertController = UIAlertController(title: "Platsinformation avstängd",
-                                                message: "För att detta ska lira behöver vi få information om din plats.",
+                                                message: "För att detta ska lira behöver vi få information om din plats. Öppna inställningar och tillåt platsinformation när appen används",
                                                 preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Avbryt", style: .cancel, handler: nil)
@@ -195,13 +195,12 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         // For use when the app is open
-        //locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
-        // If location services is enabled get the users location
+        // If location services is enabled get the user's location
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
         
