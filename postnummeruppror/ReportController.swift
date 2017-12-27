@@ -26,7 +26,7 @@ extension Bundle {
     }
 }
 
-class ReportController: UIViewController, CLLocationManagerDelegate {
+class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     var locationManager = CLLocationManager()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -44,7 +44,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var mapItem: MKMapView!
+    var tileRenderer: MKTileOverlayRenderer!
     @IBOutlet weak var labelIntro: UILabel!
     @IBOutlet weak var postalCode: UITextField!
     @IBOutlet weak var postalTown: UITextField!
@@ -160,6 +160,15 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    // Switch to OSM
+    func setupTileRenderer() {
+        let template = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        let overlay = MKTileOverlay(urlTemplate: template)
+        overlay.canReplaceMapContent = true
+        self.mapView.add(overlay, level: .aboveLabels)
+        tileRenderer = MKTileOverlayRenderer(tileOverlay: overlay)
+    }
+    
     
     // Show the popup to the user if we have been denied location
     func showLocationDisabledPopUp() {
@@ -190,9 +199,16 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        return tileRenderer
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTileRenderer()
         
         // For use when the app is open
         locationManager.requestWhenInUseAuthorization()
@@ -207,6 +223,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
         // Default location in central Sweden somewhere
         let initialLocation = CLLocation(latitude: 59.635039, longitude: 14.841073)
         centerMapOnLocation(location: initialLocation)
+        mapView.delegate = self
         
         // Is user registered?
         let context = appDelegate.persistentContainer.viewContext
@@ -236,3 +253,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate {
     }
 
 }
+
+
+
+

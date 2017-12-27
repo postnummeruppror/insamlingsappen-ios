@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
@@ -255,7 +254,7 @@
                                 </constraints>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QE-7O-vQZ">
-                                <rect key="frame" x="16" y="374.5" width="343" height="276.5"/>
+                                <rect key="frame" x="16" y="371.5" width="343" height="279.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="zPK-0e-kwF"/>
                                 </constraints>
@@ -354,6 +353,12 @@
                                     <action selector="sendReport:" destination="GFQ-t4-jg0" eventType="touchUpInside" id="mnn-z0-AM9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© OpenStreetMap" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-mI-7J7">
+                                <rect key="frame" x="251" y="632" width="103" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -363,6 +368,8 @@
                             <constraint firstItem="dgY-2q-alR" firstAttribute="top" secondItem="0lQ-jt-OeK" secondAttribute="top" constant="14" id="4JX-bk-j9o"/>
                             <constraint firstItem="0lQ-jt-OeK" firstAttribute="trailing" secondItem="red-FL-zdg" secondAttribute="trailing" constant="16" id="4RR-sc-Hm2"/>
                             <constraint firstItem="red-FL-zdg" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="6CS-3S-TIa"/>
+                            <constraint firstItem="0lQ-jt-OeK" firstAttribute="trailing" secondItem="UhV-mI-7J7" secondAttribute="trailing" constant="21" id="ITf-R2-K9k"/>
+                            <constraint firstItem="UhV-mI-7J7" firstAttribute="top" secondItem="3QE-7O-vQZ" secondAttribute="bottom" constant="-19" id="Ibh-Sf-xJx"/>
                             <constraint firstItem="q9k-FO-Zyc" firstAttribute="top" secondItem="red-FL-zdg" secondAttribute="bottom" constant="8" id="Iyf-nQ-KF3"/>
                             <constraint firstItem="0lQ-jt-OeK" firstAttribute="bottom" secondItem="3QE-7O-vQZ" secondAttribute="bottom" constant="16" id="J1O-H5-0hp"/>
                             <constraint firstItem="dgY-2q-alR" firstAttribute="leading" secondItem="y3T-kY-A7W" secondAttribute="leadingMargin" id="Lc9-32-zgX"/>
@@ -372,7 +379,7 @@
                             <constraint firstItem="dgY-2q-alR" firstAttribute="trailing" secondItem="zoY-pR-YUd" secondAttribute="trailing" id="eRi-Iu-u30"/>
                             <constraint firstItem="all-dI-Ltb" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="gA0-f3-fDl"/>
                             <constraint firstItem="zoY-pR-YUd" firstAttribute="top" secondItem="dgY-2q-alR" secondAttribute="bottom" constant="19" id="jjh-DQ-j0U"/>
-                            <constraint firstItem="3QE-7O-vQZ" firstAttribute="top" secondItem="all-dI-Ltb" secondAttribute="bottom" constant="8" id="meR-xf-qul"/>
+                            <constraint firstItem="3QE-7O-vQZ" firstAttribute="top" secondItem="all-dI-Ltb" secondAttribute="bottom" constant="5" id="meR-xf-qul"/>
                             <constraint firstItem="dgY-2q-alR" firstAttribute="trailing" secondItem="y3T-kY-A7W" secondAttribute="trailingMargin" id="qI8-ZU-BM9"/>
                             <constraint firstItem="3QE-7O-vQZ" firstAttribute="leading" secondItem="0lQ-jt-OeK" secondAttribute="leading" constant="16" id="zfW-dt-61k"/>
                         </constraints>
