@@ -66,15 +66,19 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         }
         
         if textField == postalCode {
-            return (text.count == 5, "Fel antal siffror i postnummer.")
+            return (text.count == 5, "Fel antal siffror i postnummer")
         }
         
         if textField == postalTown {
-            return (text.count > 1, "Ange en korrekt postort.")
+            return (text.count > 1, "Ange en postort")
         }
         
         if textField == streetName {
-            return (text.count > 3, "Ange en gatuadress.")
+            return (text.count > 3, "Ange ett gatunamn")
+        }
+        
+        if textField == houseNumber {
+            return (text.count > 0, "Ange gatunummer")
         }
         
         return (true, "")
@@ -278,6 +282,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         postalTown.delegate = self
         streetName.delegate = self
         houseNumber.delegate = self
+        houseName.delegate = self
         
         // Hide validation message container
         labelValidationResult.isHidden = true
@@ -292,6 +297,12 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func isReadyToSubmit() -> Bool {
+        var result = (self.postalCode.text!.count == 5 && self.postalTown.text!.count > 1 && self.streetName.text!.count > 3 && self.houseNumber.text!.count > 0)
+        return result
     }
     
 }
@@ -313,17 +324,23 @@ extension ReportController: UITextFieldDelegate {
         UIView.animate(withDuration: 0.25, animations: {
             self.labelValidationResult.isHidden = valid
         })
-        
-        // Show send button if no validation message
-        self.sendButton.isEnabled = self.labelValidationResult.isHidden
     }
     
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        // Check fields using the numeric keyboard here
+        if(textField == postalCode || textField == houseNumber) {
+            checkValid(textField, nextField: textField)
+        }
+        
+        // Show send button if form is ready for submit
+        self.sendButton.isEnabled = isReadyToSubmit()
+    }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case postalCode:
-            checkValid(postalCode, nextField: postalTown)
         case postalTown:
             checkValid(postalTown, nextField: streetName)
         case streetName:
