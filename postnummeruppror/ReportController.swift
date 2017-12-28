@@ -37,8 +37,15 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
 
     @IBAction func showAboutDialog(_ sender: Any) {
         
+        // See https://stackoverflow.com/questions/30874386/how-to-correctly-open-url-from-uialertviewcontrollers-handler for hints on handling link opening from alert
+        
         let alert = UIAlertController(title: "Om postnummeruppror", message: "Vi vill skapa en ny postnummerdatabas fri att använda för alla. Samtidigt vill vi visa för politiker att affärsmodellen för postnummer är förlegad. \nEftersom ursprungskällan till postnummer är skyddad måste vi bygga upp en ny databas från grunden. Vi vill göra det med din hjälp. Genom att rapportera in adressinformation med någon av våra appar kan du bidra till databasen.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Läs mer", style: UIAlertActionStyle.default, handler: {
+            (action) in
+            UIApplication.shared.open(URL(string: "https://postnummeruppror.nu/")!, options: [:], completionHandler: nil)
+            NSLog("Opening link")
+        }))
         self.present(alert, animated: true, completion: nil)
         
     }
@@ -122,7 +129,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             if data != nil {
                 do {
                     if let safeData = data{
-                        print("Response: \(String(data:safeData, encoding:.utf8))")
+                        print("Response: \(String(describing: String(data:safeData, encoding:.utf8)))")
                     }
                     if let resultObject = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
 
@@ -181,7 +188,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     }
     
     
-    // If we have been deined access give the user the option to change it
+    // If we have been denied access give the user the option to change it
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if(status == CLAuthorizationStatus.denied) {
             showLocationDisabledPopUp()
@@ -301,7 +308,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     
     
     func isReadyToSubmit() -> Bool {
-        var result = (self.postalCode.text!.count == 5 && self.postalTown.text!.count > 1 && self.streetName.text!.count > 3 && self.houseNumber.text!.count > 0)
+        let result = (self.postalCode.text!.count == 5 && self.postalTown.text!.count > 1 && self.streetName.text!.count > 3 && self.houseNumber.text!.count > 0)
         return result
     }
     
