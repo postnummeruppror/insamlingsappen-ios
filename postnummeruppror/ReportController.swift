@@ -235,7 +235,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         let cancelAction = UIAlertAction(title: "Avbryt", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
-        let openAction = UIAlertAction(title: "Öppna inställningar", style: .default) { (action) in
+        let openAction = UIAlertAction(title: "Inställningar", style: .default) { (action) in
             if let url = URL(string: UIApplicationOpenSettingsURLString) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
@@ -375,7 +375,7 @@ extension ReportController: UITextFieldDelegate {
 }
 
 
-// Show modal wkile data being sent to server.
+// Show modal while data being sent to server.
 // https://stackoverflow.com/questions/27960556/loading-an-overlay-when-running-long-tasks-in-ios
 
 public class LoadingOverlay{

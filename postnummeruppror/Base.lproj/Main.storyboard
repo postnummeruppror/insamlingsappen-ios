@@ -21,14 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tack för att du vill hjälpa till. Ange dina uppgifter i fälten nedan." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14G-Za-vsx">
-                                <rect key="frame" x="16" y="82" width="343" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EGP-zU-1sU">
-                                <rect key="frame" x="16" y="143" width="343" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EGP-zU-1sU">
+                                <rect key="frame" x="16" y="153" width="343" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jag godkänner villkoren (CC0)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4Q-AH-R2i">
                                         <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -48,8 +42,8 @@
                                     </switch>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="45T-oS-F7n">
-                                <rect key="frame" x="16" y="267.5" width="343" height="58.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="45T-oS-F7n">
+                                <rect key="frame" x="16" y="277.5" width="343" height="58.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HNf-Of-kD3">
                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="58.5"/>
@@ -63,7 +57,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-fk-pJE">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Per" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-fk-pJE">
                                                 <rect key="frame" x="0.0" y="28.5" width="167.5" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="Förnamn"/>
                                                 <nil key="textColor"/>
@@ -84,7 +78,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qBd-hr-hxt">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Post" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qBd-hr-hxt">
                                                 <rect key="frame" x="0.0" y="28.5" width="167.5" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="Efternamn"/>
                                                 <nil key="textColor"/>
@@ -98,15 +92,15 @@
                                     <constraint firstItem="ZrZ-9e-ibI" firstAttribute="leading" secondItem="HNf-Of-kD3" secondAttribute="trailing" id="8Wz-HW-igt"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8C-hI-Mtn">
-                                <rect key="frame" x="16" y="342" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8C-hI-Mtn">
+                                <rect key="frame" x="16" y="352" width="40" height="30"/>
                                 <state key="normal" title="Spara"/>
                                 <connections>
                                     <action selector="saveUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ztl-R0-F6I"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Ug-XP-NQv">
-                                <rect key="frame" x="16" y="189" width="343" height="58.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Ug-XP-NQv">
+                                <rect key="frame" x="16" y="199" width="343" height="58.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgy-hx-Xgj">
                                         <rect key="frame" x="0.0" y="0.0" width="51.5" height="20.5"/>
@@ -129,13 +123,36 @@
                                     <constraint firstAttribute="trailing" secondItem="jNR-0Y-ejb" secondAttribute="trailing" id="clp-gJ-JnF"/>
                                 </constraints>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwX-7S-0Tb">
+                                <rect key="frame" x="11" y="78" width="348" height="71"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="chb-Lm-rmk"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Tack för att du vill hjälpa till. Ange dina uppgifter i fälten nedan. Läs vår policy ">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="https://www.postnummeruppror.nu/privacy/">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <string key="NSLink">https://www.postnummeruppror.nu/privacy/</string>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="url"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="f8C-hI-Mtn" firstAttribute="top" secondItem="45T-oS-F7n" secondAttribute="bottom" constant="16" id="12H-3z-qoQ"/>
                             <constraint firstItem="9Ug-XP-NQv" firstAttribute="firstBaseline" secondItem="W4Q-AH-R2i" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="1r5-LJ-0gf"/>
-                            <constraint firstItem="14G-Za-vsx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3Sv-yd-B67"/>
+                            <constraint firstItem="pwX-7S-0Tb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7s5-ay-7cV"/>
                             <constraint firstItem="f8C-hI-Mtn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9bB-AP-RKQ"/>
+                            <constraint firstItem="pwX-7S-0Tb" firstAttribute="trailing" secondItem="EGP-zU-1sU" secondAttribute="trailing" id="9hS-g7-2Ii"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ug-XP-NQv" secondAttribute="trailing" constant="16" id="FvT-aj-I0N"/>
                             <constraint firstItem="9Ug-XP-NQv" firstAttribute="top" secondItem="EGP-zU-1sU" secondAttribute="bottom" constant="15" id="JVf-AJ-6Ld"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EGP-zU-1sU" secondAttribute="trailing" constant="16" id="N6m-rZ-J3g"/>
@@ -143,10 +160,9 @@
                             <constraint firstItem="9Ug-XP-NQv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b8h-L4-9xd"/>
                             <constraint firstItem="EGP-zU-1sU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gbA-Zg-ywB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="45T-oS-F7n" secondAttribute="trailing" constant="16" id="kQm-73-2cA"/>
-                            <constraint firstItem="EGP-zU-1sU" firstAttribute="top" secondItem="14G-Za-vsx" secondAttribute="bottom" constant="25" id="mze-RC-7zN"/>
+                            <constraint firstItem="pwX-7S-0Tb" firstAttribute="leading" secondItem="EGP-zU-1sU" secondAttribute="leading" id="ope-SY-FDb"/>
                             <constraint firstItem="45T-oS-F7n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="u5Y-db-H3W"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="14G-Za-vsx" secondAttribute="trailing" constant="16" id="ueQ-po-9SG"/>
-                            <constraint firstItem="14G-Za-vsx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="x5z-Up-g0E"/>
+                            <constraint firstItem="EGP-zU-1sU" firstAttribute="top" secondItem="pwX-7S-0Tb" secondAttribute="bottom" constant="4" id="vfD-MR-hKS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -162,7 +178,7 @@
             </objects>
             <point key="canvasLocation" x="775.20000000000005" y="114.69265367316342"/>
         </scene>
-        <!--Postnummeruppror-->
+        <!--Rapportera-->
         <scene sceneID="MNf-Q5-fKt">
             <objects>
                 <viewController id="GFQ-t4-jg0" customClass="ReportController" customModule="postnummeruppror" customModuleProvider="target" sceneMemberID="viewController">
@@ -396,7 +412,7 @@
                             <outletCollection property="gestureRecognizers" destination="IFr-tb-Xrr" appends="YES" id="k0w-N8-5TR"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Postnummeruppror" id="PH0-sz-YDR">
+                    <navigationItem key="navigationItem" title="Rapportera" id="PH0-sz-YDR">
                         <barButtonItem key="leftBarButtonItem" title="Inställningar" id="1qd-lA-elG">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="showSettings" id="wRg-eW-Hyh"/>
