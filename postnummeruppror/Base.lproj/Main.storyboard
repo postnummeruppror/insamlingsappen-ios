@@ -171,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="red-FL-zdg">
-                                <rect key="frame" x="16" y="234" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="234.5" width="343" height="58.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i1a-V0-SHS">
                                         <rect key="frame" x="0.0" y="0.0" width="227" height="58.5"/>
@@ -186,7 +186,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Slottsbacken" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqF-2o-5Wa">
+                                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valhallavägen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqF-2o-5Wa">
                                                 <rect key="frame" x="0.0" y="28.5" width="227" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="Gatunamn"/>
                                                 <constraints>
@@ -214,7 +214,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qio-tv-6eg">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="117" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qio-tv-6eg">
                                                 <rect key="frame" x="0.0" y="28.5" width="50" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="Nummer"/>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -254,7 +254,7 @@
                                 </constraints>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QE-7O-vQZ">
-                                <rect key="frame" x="16" y="380" width="343" height="271"/>
+                                <rect key="frame" x="16" y="380.5" width="343" height="270.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="zPK-0e-kwF"/>
                                 </constraints>
@@ -269,7 +269,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4yU-Cs-JY0">
-                                <rect key="frame" x="16" y="354.5" width="176" height="20.5"/>
+                                <rect key="frame" x="16" y="355" width="176" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noggrannhet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="all-dI-Ltb">
                                         <rect key="frame" x="0.0" y="0.0" width="105.5" height="20.5"/>
@@ -295,7 +295,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9k-FO-Zyc">
-                                <rect key="frame" x="16" y="300" width="100" height="30"/>
+                                <rect key="frame" x="16" y="300.5" width="100" height="30"/>
                                 <state key="normal" title="Skicka rapport"/>
                                 <connections>
                                     <action selector="sendReport:" destination="GFQ-t4-jg0" eventType="touchUpInside" id="mnn-z0-AM9"/>
@@ -314,7 +314,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zoY-pR-YUd">
-                                <rect key="frame" x="16" y="167" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="167.5" width="343" height="58.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lC-mh-Rpt">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="58.5"/>
@@ -328,7 +328,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="11130" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19U-Hb-fSY">
+                                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="11531" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19U-Hb-fSY">
                                                 <rect key="frame" x="0.0" y="28.5" width="100" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="Postnummer"/>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>

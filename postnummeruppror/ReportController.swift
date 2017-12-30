@@ -39,7 +39,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         
         // See https://stackoverflow.com/questions/30874386/how-to-correctly-open-url-from-uialertviewcontrollers-handler for hints on handling link opening from alert
         
-        let alert = UIAlertController(title: "Om postnummeruppror", message: "Vi vill skapa en ny postnummerdatabas fri att använda för alla. Samtidigt vill vi visa för politiker att affärsmodellen för postnummer är förlegad. \nEftersom ursprungskällan till postnummer är skyddad måste vi bygga upp en ny databas från grunden. Vi vill göra det med din hjälp. Genom att rapportera in adressinformation med någon av våra appar kan du bidra till databasen.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Om postnummeruppror", message: "Vi vill skapa en ny postnummerdatabas fri att använda för alla. Samtidigt vill vi visa för politiker att affärsmodellen för postnummer är förlegad. \nEftersom ursprungskällan till postnummer är skyddad måste vi bygga upp en ny databas från grunden. Vi vill göra det med din hjälp. Genom att rapportera in adressinformation med någon av våra appar kan du bidra till databasen.\n(v " + String(describing: Bundle.main.releaseVersionNumber!) + "b" + String(describing: Bundle.main.buildVersionNumber!) + ")" , preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Läs mer", style: UIAlertActionStyle.default, handler: {
             (action) in
@@ -92,12 +92,15 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     }
     
     
-    
-    
     @IBAction func sendReport(_ sender: Any) {
         
+        // Show modal spinner while sending data
+        DispatchQueue.main.async { [unowned self] in
+            LoadingOverlay.shared.showOverlay(view: UIApplication.shared.keyWindow!)
+        }
+        
         // prepare json data
-        let json: [String: Any] = ["applicationVersion": Bundle.main.releaseVersionNumber,
+        let json: [String: Any] = ["applicationVersion": Bundle.main.releaseVersionNumber! + "b" + Bundle.main.buildVersionNumber!,
                                    "application": "insamlingsappen-ios",
                                    "accountIdentity": Utils.getUUID(),
                                    "coordinate[provider]": "gps",
@@ -110,8 +113,10 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
                                    "postalAddress[houseNumber]": houseNumber.text ?? "",
                                    "postalAddress[houseName]": houseName.text ?? "",
                                    ]
+        // Debug print it
         print(json)
         
+        // Post it
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         let postURL = URL(string: "https://insamling.postnummeruppror.nu/api/0.0.5/location_sample/create")!
         var postRequest = URLRequest(url: postURL, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 60.0)
@@ -128,6 +133,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             if error != nil { print("POST Request: Communication error: \(error!)") }
             if data != nil {
                 do {
+                    
                     if let safeData = data{
                         print("Response: \(String(describing: String(data:safeData, encoding:.utf8)))")
                     }
@@ -136,8 +142,13 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
                         var reportidentity = String(describing: resultObject.value(forKey: "identity")!)
 
                         DispatchQueue.main.async(execute: {
+                            
+                            // Hide spinner
+                            LoadingOverlay.shared.hideOverlayView()
+                            
                             print("Results from POST:\n\(String(describing: resultObject))")
                             
+                            // Show thank you alert
                             let alert = UIAlertController(title: "Tack", message: "Tack för din rapport. (nr. " + reportidentity + ")", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
@@ -146,12 +157,16 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
                     
                 } catch {
                     
-                    // show messagebox
-                    let alert = UIAlertController(title: "Fel", message: "Kunde inte skapa rapport. Försök senare.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    
                     DispatchQueue.main.async(execute: {
+                        
+                    // Hide spinner
+                    LoadingOverlay.shared.hideOverlayView()
+                    
+                    // show error alert
+                    let alert = UIAlertController(title: "Fel", message: "Kunde inte skapa rapport. Försök senare.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    
                         print("Unable to parse JSON response")
                     })
                     
@@ -206,7 +221,12 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     }
     
     
-    // Show the popup to the user if we have been denied location
+    // Set upp OSM tile renderer
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        return tileRenderer
+    }
+    
+    // Show popup to the user if we have been denied location
     func showLocationDisabledPopUp() {
         let alertController = UIAlertController(title: "Platsinformation avstängd",
                                                 message: "För att detta ska lira behöver vi få information om din plats. Öppna inställningar och tillåt platsinformation när appen används",
@@ -230,17 +250,11 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     let regionRadius: CLLocationDistance = 250
     
     
-    //Center map
+    // Center map
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-
-    // Set upp OSM tile renderer
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        return tileRenderer
     }
     
     
@@ -272,7 +286,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             let result = try context.fetch(request)
             
             if result.count == 0 {
-                // showSettings view
+                // show sSettings view
                 performSegue(withIdentifier: "showSettings", sender: self)
             }
         } catch {
@@ -299,8 +313,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     }
 
     
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -310,10 +323,9 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     func isReadyToSubmit() -> Bool {
         let result = (self.postalCode.text!.count == 5 && self.postalTown.text!.count > 1 && self.streetName.text!.count > 3 && self.houseNumber.text!.count > 0)
         return result
+        
     }
-    
 }
-
 
 
 
@@ -363,6 +375,48 @@ extension ReportController: UITextFieldDelegate {
 }
 
 
+// Show modal wkile data being sent to server.
+// https://stackoverflow.com/questions/27960556/loading-an-overlay-when-running-long-tasks-in-ios
 
-
-
+public class LoadingOverlay{
+    
+    var overlayView = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var bgView = UIView()
+    
+    class var shared: LoadingOverlay {
+        struct Static {
+            static let instance: LoadingOverlay = LoadingOverlay()
+        }
+        return Static.instance
+    }
+    
+    public func showOverlay(view: UIView) {
+        
+        bgView.frame = view.frame
+        bgView.backgroundColor = UIColor.gray
+        bgView.addSubview(overlayView)
+        bgView.autoresizingMask = [.flexibleLeftMargin,.flexibleTopMargin,.flexibleRightMargin,.flexibleBottomMargin,.flexibleHeight, .flexibleWidth]
+        
+        overlayView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        overlayView.center = view.center
+        overlayView.autoresizingMask = [.flexibleLeftMargin,.flexibleTopMargin,.flexibleRightMargin,.flexibleBottomMargin]
+        overlayView.backgroundColor = UIColor.white
+        overlayView.clipsToBounds = true
+        overlayView.layer.cornerRadius = 10
+        
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        activityIndicator.activityIndicatorViewStyle = .gray
+        activityIndicator.center = CGPoint(x: overlayView.bounds.width / 2, y: overlayView.bounds.height / 2)
+        
+        overlayView.addSubview(activityIndicator)
+        view.addSubview(bgView)
+        self.activityIndicator.startAnimating()
+        
+    }
+    
+    public func hideOverlayView() {
+        activityIndicator.stopAnimating()
+        bgView.removeFromSuperview()
+    }
+}
