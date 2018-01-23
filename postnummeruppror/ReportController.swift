@@ -32,6 +32,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 
+
     @IBOutlet weak var accuracyLabel: UILabel!
     
 
@@ -90,6 +91,30 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         
         return (true, "")
     }
+
+    struct Coordinate: Codable {
+        let provider: String
+        let accuracy: Double
+        let latitude: Double
+        let longitude: Double
+        let altitude: Double
+    }
+    
+    struct PostalAddress: Codable {
+        let postalCode: String
+        let postalTown: String
+        let streetName: String
+        let houseNumber: String
+        let houseName: String
+    }
+    
+    struct Report: Codable {
+        let applicationVersion: String
+        let application: String
+        let accountIdentity: String
+        let coordinate: Coordinate
+        let postalAddress: PostalAddress
+    }
     
     
     @IBAction func sendReport(_ sender: Any) {
@@ -99,40 +124,49 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             LoadingOverlay.shared.showOverlay(view: UIApplication.shared.keyWindow!)
         }
         
-        // prepare json data
-        let json: [String: Any] = ["applicationVersion": Bundle.main.releaseVersionNumber! + "b" + Bundle.main.buildVersionNumber!,
-                                   "application": "insamlingsappen-ios",
-                                   "accountIdentity": Utils.getUUID(),
-                                   "coordinate[provider]": "gps",
-                                   "coordinate[accuracy]": self.accuracy,
-                                   "coordinate[latitude]": self.latitude,
-                                   "coordinate[longitude]": self.longitude,
-                                   "coordinate[altitude]": self.altitude,
-                                   "postalAddress[postalCode]": postalCode.text ?? "",
-                                   "postalAddress[postalTown]": postalTown.text ?? "",
-                                   "postalAddress[houseNumber]": houseNumber.text ?? "",
-                                   "postalAddress[houseName]": houseName.text ?? "",
-                                   ]
+        // Prepare data
+        let coordinate = Coordinate(provider: "gps",
+                                    accuracy: self.accuracy,
+                                    latitude: self.latitude,
+                                    longitude: self.longitude,
+                                    altitude: self.altitude)
+        
+        let postalAddress = PostalAddress(postalCode: postalCode.text ?? "",
+                                          postalTown: postalTown.text ?? "",
+                                          streetName: streetName.text ?? "",
+                                          houseNumber: houseNumber.text ?? "",
+                                          houseName: houseName.text ?? "")
+        
+        let report = Report(
+            applicationVersion: Bundle.main.releaseVersionNumber! + "b" + Bundle.main.buildVersionNumber!,
+            application: "insamlingsappen-ios",
+            accountIdentity: Utils.getUUID(),
+            coordinate: coordinate,
+            postalAddress: postalAddress
+        )
+        
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(report)
+        
         // Debug print it
-        print(json)
+        let jsonstr = String(data: jsonData!, encoding: .utf8)
+        print(jsonstr)
         
         // Post it
-        let jsonData = try? JSONSerialization.data(withJSONObject: json)
         let postURL = URL(string: "https://insamling.postnummeruppror.nu/api/0.0.5/location_sample/create")!
         var postRequest = URLRequest(url: postURL, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 60.0)
         postRequest.httpMethod = "POST"
         postRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         postRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        do {
-            let jsonParams = try JSONSerialization.data(withJSONObject: json, options: [])
-            postRequest.httpBody = jsonParams
-        } catch { print("Error: unable to add parameters to POST request.")}
+        postRequest.httpBody = jsonData
         
         URLSession.shared.dataTask(with: postRequest, completionHandler: { (data, response, error) -> Void in
             if error != nil { print("POST Request: Communication error: \(error!)") }
+            
             if data != nil {
                 do {
+                    
+                    print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
                     
                     if let safeData = data{
                         print("Response: \(String(describing: String(data:safeData, encoding:.utf8)))")
@@ -252,11 +286,9 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     
     // Center map
     func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
