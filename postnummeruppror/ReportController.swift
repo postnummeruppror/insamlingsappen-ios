@@ -32,8 +32,6 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 
-
-    @IBOutlet weak var accuracyLabel: UILabel!
     
 
     @IBAction func showAboutDialog(_ sender: Any) {
@@ -61,11 +59,23 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     @IBOutlet weak var houseName: UITextField!
     @IBOutlet weak var labelValidationResult: UILabel!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var accuracyLabel: UILabel!
+    
     
     var latitude = 0.0
     var longitude = 0.0
     var accuracy = 0.0
     var altitude = 0.0
+    
+    
+    @IBAction func clearForm(_ sender: Any) {
+        postalTown.text = ""
+        postalCode.text = ""
+        streetName.text = ""
+        houseNumber.text = ""
+        houseName.text = ""
+    }
     
     
     fileprivate func validate(_ textField: UITextField) -> (Bool, String?) {
@@ -166,6 +176,7 @@ class ReportController: UIViewController, CLLocationManagerDelegate, MKMapViewDe
             if data != nil {
                 do {
                     
+                    //Print response
                     print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
                     
                     if let safeData = data{
